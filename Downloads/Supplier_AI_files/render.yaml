@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: supplieros
+    env: docker
+    region: oregon
+    plan: free
+    dockerfilePath: ./supplieros/Dockerfile
+    envVars:
+      - key: PORT
+        value: 8000
+      - key: FLASK_ENV
+        value: production

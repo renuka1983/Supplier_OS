@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SupplierOS — Revenue Decisions Powered by AI</title>
+  <meta name="description" content="SupplierOS: AI-powered revenue decisioning for consumer goods suppliers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <style>
+    html, body { margin: 0; padding: 0; height: 100%; background: #0A0C10; }
+    #root { height: 100%; }
+    #loading-screen {
+      position: fixed; inset: 0; background: #0A0C10;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 16px;
+      font-family: -apple-system, sans-serif; color: #94A3B8;
+      z-index: 9999; transition: opacity .3s;
+    }
+    #loading-screen.hidden { opacity: 0; pointer-events: none; }
+    .load-logo { font-size: 24px; font-weight: 700; color: #E2E8F0; }
+    .load-logo span { color: #3B82F6; }
+    .load-bar { width: 160px; height: 3px; background: rgba(255,255,255,.08); border-radius: 3px; overflow: hidden; }
+    .load-fill { height: 100%; background: #3B82F6; border-radius: 3px; animation: loadfill 1.2s ease-in-out forwards; }
+    @keyframes loadfill { from { width: 0 } to { width: 100% } }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <div class="load-logo">Supplier<span>OS</span></div>
+    <div style="font-size:12px;letter-spacing:.05em;text-transform:uppercase">Initializing revenue intelligence</div>
+    <div class="load-bar"><div class="load-fill"></div></div>
+  </div>
+  <div id="root"></div>
+  <script src="/bundle.js"></script>
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        const s = document.getElementById('loading-screen');
+        if (s) s.classList.add('hidden');
+        setTimeout(() => s && s.remove(), 400);
+      }, 1400);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: supplieros_db
+    environment:
+      POSTGRES_DB: supplieros
+      POSTGRES_USER: supplieros
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-changeme_in_production}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U supplieros"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  api:
+    build: .
+    container_name: supplieros_api
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      PORT: 8000
+      DATABASE_URL: postgresql://supplieros:${DB_PASSWORD:-changeme_in_production}@db:5432/supplieros
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  pgdata:
+    name: supplieros_pgdata

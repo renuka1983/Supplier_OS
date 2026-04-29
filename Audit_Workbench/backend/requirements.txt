@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+pydantic-settings
+python-multipart
+pandas
+numpy
+openpyxl
+scikit-learn
+xlsxwriter
+httpx
+pytest
+

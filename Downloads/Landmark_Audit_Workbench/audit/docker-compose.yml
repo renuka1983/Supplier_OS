@@ -1,9 +1,0 @@
-services:
-  anomaly-api:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: anomaly-api
-    ports:
-      - "8000:8000"
-    restart: unless-stopped

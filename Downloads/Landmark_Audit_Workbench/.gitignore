@@ -1,0 +1,13 @@
+.venv/
+**/.venv/
+
+data/
+**/data/
+datasets/
+**/datasets/
+
+node_modules/
+**/node_modules/
+
+__pycache__/
+*.pyc

@@ -1,0 +1,53 @@
+{
+  "dataset_id": "smoke-test-001",
+  "transactions": [
+    {
+      "JV VOUCHER NUMBER": "JV-1001",
+      "GL ACCOUNT CODE": "92001",
+      "GL DATE": "2026-01-29",
+      "GL CREATION DATE": "2026-01-30T21:15:00",
+      "ENTERED DR": "1000",
+      "ENTERED CR": "0",
+      "NET AMOUNT": "1000",
+      "USERS": "alice",
+      "SOURCE": "MANUAL",
+      "DESCRIPTION": "test"
+    },
+    {
+      "JV VOUCHER NUMBER": "JV-1002",
+      "GL ACCOUNT CODE": "14551",
+      "GL DATE": "2026-01-15",
+      "GL CREATION DATE": "2026-01-15T11:00:00",
+      "ENTERED DR": "250",
+      "ENTERED CR": "0",
+      "NET AMOUNT": "250",
+      "USERS": "system_user",
+      "SOURCE": "AP",
+      "DESCRIPTION": "normal clearing line"
+    }
+  ],
+  "findings": [
+    {
+      "ruleId": "DUM-01",
+      "severity": "CRITICAL",
+      "category": "Dummy / Unknown Accounts",
+      "row": {
+        "JV VOUCHER NUMBER": "JV-1001",
+        "GL ACCOUNT CODE": "92001",
+        "GL DATE": "2026-01-29",
+        "GL CREATION DATE": "2026-01-30T21:15:00",
+        "ENTERED DR": "1000",
+        "ENTERED CR": "0",
+        "NET AMOUNT": "1000",
+        "USERS": "alice",
+        "SOURCE": "MANUAL",
+        "DESCRIPTION": "test"
+      }
+    }
+  ],
+  "periodic_profiles": [],
+  "config": {
+    "threshold": 0.65,
+    "vote_count_threshold": 3
+  }
+}
